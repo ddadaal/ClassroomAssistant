@@ -1,3 +1,11 @@
 # Astah Lock
 
 *.lock
+
+# Word
+
+~$*.doc*
+
+# HTML
+
+*.html
