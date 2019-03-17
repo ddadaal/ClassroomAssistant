@@ -100,11 +100,11 @@
 
 **c&c视图**
 
-![server-register c&c](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/img/common/%E6%B3%A8%E5%86%8C-%E5%8F%91%E7%8E%B0c%26c.jpg)
+![server-register c&c](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/%E6%B3%A8%E5%86%8C-%E5%8F%91%E7%8E%B0c%26c.jpg)
 
 **模块视图**
 
-![server-register model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/img/common/%E6%B3%A8%E5%86%8C-%E5%8F%91%E7%8E%B0model.jpg)
+![server-register model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/%E6%B3%A8%E5%86%8C-%E5%8F%91%E7%8E%B0model.jpg)
 
 
 ## 3.4 第四次迭代
@@ -183,9 +183,9 @@
 
 ### 3.4.5 架构视图
 
-![client-register c&c]()
+![client-register c&c](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/client-register%20c%26c.jpg)
 
-![client-register model]()
+![client-register model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/client-register%20model.jpg)
 
 ## 3.5 第五次迭代
 ---
@@ -196,7 +196,25 @@
 ### 3.5.2 确定架构驱动因素
 
 |#|架构驱动因素|重要性|难易度|
-|---|---|
+|---|---|-|-|
+|1|约束1：用户的数据不得被泄露和非法修改|高|高|
+|2|场景7：学生数据防止被攻击和篡改|高|高|
+|3|场景3：系统故障|高|中|
+|4|场景6：断线重连|高|中|
+|5|功能需求5：参加考试|高|中|
+|6|功能需求1：课程签到|中|低|
+|7|功能需求2：发言举手|中|低|
+|8|功能需求3：参与讨论|中|低|
+|9|功能需求6：信息推送|中|低|
+
+### 3.5.3 选择架构模式
+
+#### 3.2.3.1 设计关注点
+
+#### 3.5.3.2 候选模式
+
+#### 3.5.3.3 候选模式与对应ASR
+
 
 ## 3.6 第六次迭代
 ---
@@ -207,7 +225,13 @@
 ### 3.6.2 确定架构驱动因素
 
 |#|架构驱动因素|重要性|难易度|
-|---|---|
+|---|---|-|-|
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
 
 ## 3.7 第七次迭代
 ---
@@ -218,4 +242,10 @@
 ### 3.7.2 确定架构驱动因素
 
 |#|架构驱动因素|重要性|难易度|
-|---|---|
+|---|---|-|-|
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
