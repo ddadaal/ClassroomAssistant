@@ -118,7 +118,7 @@
 
 C&C 视图
 
-
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/上传.svg)
 
 #### 模块视图
 
@@ -204,6 +204,10 @@ C&C 视图
 
 ### 4.3.5 架构视图
 
+C&C 视图
+
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/推送.svg)
+
 #### 模块视图
 
 ![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/data.svg)
@@ -280,6 +284,10 @@ C&C 视图
 | 3    | 提高权限检查速度 | 请求队列、多线程并行       | 用户正常操作、用户请求服务                                   |
 
 ### 4.2.5 架构视图
+
+C&C 视图
+
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/权限.svg)
 
 #### 模块视图
 
