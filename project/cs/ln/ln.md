@@ -116,7 +116,13 @@
 
 ### 4.1.5 架构视图
 
-图片
+C&C 视图
+
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/上传.svg)
+
+#### 模块视图
+
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/data.svg)
 
 ## 4.3 第3次迭代
 
@@ -198,7 +204,13 @@
 
 ### 4.3.5 架构视图
 
-模块视图
+C&C 视图
+
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/推送.svg)
+
+#### 模块视图
+
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/data.svg)
 
 ## 4.2 第4次迭代
 
@@ -273,5 +285,11 @@
 
 ### 4.2.5 架构视图
 
-模块视图
+C&C 视图
+
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/权限.svg)
+
+#### 模块视图
+
+![](C:/Users/liangnan/Documents/ClassroomAssistant/project/cs/ln/img/data.svg)
 
