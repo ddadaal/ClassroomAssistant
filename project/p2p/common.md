@@ -196,9 +196,9 @@
 
 ### 3.4.5 架构视图
 
-![client-register c&c](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/client-register%20c%26c.jpg)
+![client-register c&c](img/qyc/client-register%20c&c.jpg)
 
-![client-register model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/client-register%20model.jpg)
+![client-register model](img/qyc/client-register%20model.jpg)
 
 ## 3.5 第五次迭代
 ### 3.5.1 分解系统组件
@@ -220,7 +220,6 @@
 |9|功能需求6：信息推送|中|低|
 
 ### 3.5.3 选择架构模式
-
 #### 3.2.3.1 设计关注点
 
 | 质量属性 | 设计关注点 | 子关注点  |
@@ -276,9 +275,9 @@
 
 ### 3.5.5 架构视图
 
-![data c&c](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/data%20c%26c.jpg)
+![data c&c](img/qyc/data%20c&c.jpg)
 
-![data model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/data%20model.jpg)
+![data model](img/qyc/data%20model.jpg)
 
 ## 3.6 第六次迭代
 ### 3.6.1 分解系统组件
@@ -350,9 +349,9 @@
 
 ### 3.6.5 架构视图
 
-![signup c&c](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/signup%20c%26c.jpg)
+![signup c&c](img/qyc/signup%20c&c.jpg)
 
-![signup model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/signup%20model.jpg)
+![signup model](img/qyc/signup%20model.jpg)
 
 ## 3.7 第七次迭代
 ### 3.7.1 分解系统组件
@@ -437,6 +436,6 @@
 
 ### 3.7.5 架构视图
 
-![exam c&c](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/exam%20c%26c.jpg)
+![exam c&c](img/qyc/exam%20c&c.jpg)
 
-![exam model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/exam%20model.jpg)
+![exam model](img/qyc/exam%20model.jpg)
