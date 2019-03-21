@@ -2,3 +2,4 @@ rootProject.name = 'classroomassistant'
 
 include 'Client'
 include 'Server'
+include 'Shared'

@@ -15,8 +15,12 @@ repositories {
 }
 
 dependencies {
-    compile project(":Shared")
+
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-reflect
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: '1.3.21'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile group: 'io.github.classgraph', name: 'classgraph', version: '4.8.16'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 

@@ -1,0 +1,3 @@
+package nju.classroomassistant.server.database
+
+interface DatabaseService
