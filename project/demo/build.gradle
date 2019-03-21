@@ -1,0 +1,9 @@
+group 'nju'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
