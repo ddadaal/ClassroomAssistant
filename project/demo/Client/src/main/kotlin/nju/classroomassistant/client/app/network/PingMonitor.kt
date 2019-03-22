@@ -4,33 +4,38 @@ import nju.classroomassistant.shared.ping.PingService
 import nju.classroomassistant.shared.util.RmiHelper
 import nju.classroomassistant.shared.util.log
 import java.rmi.Naming
+import javax.xml.bind.JAXBElement
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 
 const val PING_INTERVAL = 5000L
 
 class PingMonitor(
     var pingService: PingService,
-    val pingFailed: (thisRef: PingMonitor) -> Unit
+    val pingFailed: () -> Unit
 ) {
 
     private var start = true
 
-    private val thread = Thread(Runnable {
+    private val thread = GlobalScope.launch {
         while (true) {
             try {
                 if (start) {
-                    log(this, "Start ping.")
+                    log("PingMonitor", "Start ping.")
                     pingService.ping()
-                    log(this, "Ping success.")
-                    Thread.sleep(PING_INTERVAL)
+                    log("PingMonitor", "Ping success.")
+                    if (start) {
+                        delay(PING_INTERVAL)
+                    }
                 }
             } catch (e: Exception) {
-                log(this, "Network is interrupted.")
-                pingFailed(this)
+                log("PingMonitor", "Network is interrupted.")
+                pingFailed()
             }
         }
 
-    })
+    }
 
     init {
         thread.start()
@@ -49,6 +54,7 @@ class PingMonitor(
     }
 
     fun stop() {
-        thread.interrupt()
+        start = false
+        thread.cancel()
     }
 }

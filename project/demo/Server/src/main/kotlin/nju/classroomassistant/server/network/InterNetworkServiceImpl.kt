@@ -32,12 +32,7 @@ class InterNetworkServiceImpl: UnicastRemoteObject(), InterNetworkService {
 
                     for (clazz in service.interfaces) {
                         if (Remote::class.java.isAssignableFrom(clazz)) {
-                            val url = RmiHelper.generateRmiUrl(clazz.name)
-                            log(
-                                "Service Exporter",
-                                String.format("registered %s to %s", url, instance.toString())
-                            )
-                            Naming.rebind(url, instance)
+                            export(clazz as Class<Remote>, instance)
                             break
                         }
                     }
@@ -46,13 +41,13 @@ class InterNetworkServiceImpl: UnicastRemoteObject(), InterNetworkService {
 
     }
 
-    fun exportSelf() {
-        val url = RmiHelper.generateRmiUrl(InterNetworkService::class.java.name)
-        Naming.rebind(url, this)
+    fun <T: Remote> export(service: Class<T>, instance: T) {
+        val url = RmiHelper.generateRmiUrl(service.name)
+        Naming.rebind(url, instance)
 
         log(
             "Service Exporter",
-            String.format("registered %s to %s", url, toString())
+            String.format("registered %s to %s", url, instance.toString())
         )
     }
 

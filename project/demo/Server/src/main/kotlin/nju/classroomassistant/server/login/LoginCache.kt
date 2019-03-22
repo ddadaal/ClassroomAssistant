@@ -1,10 +1,11 @@
-package nju.classroomassistant.server.permission
+package nju.classroomassistant.server.login
 
 import nju.classroomassistant.shared.di.Service
 import nju.classroomassistant.shared.model.user.UserRole
 import nju.classroomassistant.shared.model.user.UserVo
+import nju.classroomassistant.shared.util.Id
 
 @Service
-interface PermissionService {
-    fun checkRole(user: UserVo, vararg expectedRole: UserRole)
+interface LoginCache {
+    fun login(username: String, password: String): UserVo?
 }

@@ -1,6 +1,6 @@
 package nju.classroomassistant.client.app.network
 
-import nju.classroomassistant.client.app.di.ServiceImpl
+import nju.classroomassistant.shared.di.ServiceImpl
 import nju.classroomassistant.shared.network.InterNetworkService
 import nju.classroomassistant.shared.ping.PingService
 import nju.classroomassistant.shared.util.RmiHelper
@@ -42,17 +42,23 @@ class NetworkServiceImpl : NetworkService {
 
         log(this, "Attempt to connect to ${RmiHelper.baseUrl}.")
 
-        networkService = lookupObject(InterNetworkService::class)
+        try {
 
-        state = NetworkState.CONNECTED
+            networkService = lookupObject(InterNetworkService::class)
+
+            state = NetworkState.CONNECTED
 
 
-        log(this, "Connected.")
+            log(this, "Connected.")
 
-        pingMonitor = PingMonitor(getObjectFromService(PingService::class)) {
-            it.pause()
-            changeState(NetworkState.INTERFERED)
-            tryReconnect()
+            pingMonitor = PingMonitor(getObjectFromService(PingService::class)) {
+                pingMonitor!!.pause()
+                changeState(NetworkState.INTERFERED)
+                tryReconnect()
+            }
+
+        } catch (e: Exception) {
+            throw NetworkException()
         }
 
 
@@ -93,7 +99,7 @@ class NetworkServiceImpl : NetworkService {
             }
         }
 
-        pingMonitor?.stop()
+        pingMonitor!!.stop()
         log(this, "Network disconnected after $RETRY_COUNT attempts to reconnect.")
         throw NetworkException()
     }

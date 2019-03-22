@@ -9,6 +9,7 @@ import tornadofx.FX
 
 class Client : App(LoginView::class, Styles::class) {
     init {
+        Thread.setDefaultUncaughtExceptionHandler(ErrorHandler())
         FX.dicontainer = MyDiContainer()
     }
 }

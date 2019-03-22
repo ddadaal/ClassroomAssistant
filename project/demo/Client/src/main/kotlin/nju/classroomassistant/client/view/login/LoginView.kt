@@ -13,7 +13,7 @@ import nju.classroomassistant.shared.util.log
 import tornadofx.*
 import java.lang.Exception
 
-class LoginView : View("Login") {
+class LoginView : View("登录") {
     val loginController: LoginController by inject()
     val networkService: NetworkService by di()
 
@@ -58,14 +58,7 @@ class LoginView : View("Login") {
 
     override fun onDock() {
 
-        try {
             networkService.connect()
-
-        } catch (e: Exception) {
-            close()
-            log(this,"Failed to connect to server.")
-        }
-
 
         model.validate(decorateErrors = false)
     }

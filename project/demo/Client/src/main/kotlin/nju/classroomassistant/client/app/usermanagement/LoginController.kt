@@ -2,13 +2,18 @@ package nju.classroomassistant.client.app.usermanagement
 
 import nju.classroomassistant.client.app.network.NetworkService
 import nju.classroomassistant.client.view.login.LoginView
+import nju.classroomassistant.client.view.main.StudentMainView
+import nju.classroomassistant.client.view.main.TeacherMainView
+import nju.classroomassistant.shared.login.LoginService
+import nju.classroomassistant.shared.model.user.UserRole
 import tornadofx.Controller
 import tornadofx.runLater
-import java.lang.Exception
 
 class LoginController : Controller() {
     val loginScreen: LoginView by inject()
-    val userService: UserService by di()
+    val currentUserManager: CurrentUserManager by di()
+    val networkService: NetworkService by di()
+
 
     fun init() {
 
@@ -28,11 +33,11 @@ class LoginController : Controller() {
 
     fun tryLogin(username: String, password: String, remember: Boolean) {
         runAsync {
-            username == "admin" && password == "secret"
-        } ui { successfulLogin ->
+            currentUserManager.currentUser = networkService.call(LoginService::class) { it.login(username, password) }
+            currentUserManager.currentUser
+        } ui { user ->
 
-            if (successfulLogin) {
-                loginScreen.clear()
+            if (user != null) {
 
                 if (remember) {
                     with(config) {
@@ -41,6 +46,12 @@ class LoginController : Controller() {
                         save()
                     }
                 }
+
+                loginScreen.replaceWith(when (user.role) {
+                    UserRole.TEACHER -> TeacherMainView::class
+                    UserRole.STUDENT -> StudentMainView::class
+                }, sizeToScene = true)
+
 
             } else {
                 showLoginScreen("Login failed. Please try again.", true)

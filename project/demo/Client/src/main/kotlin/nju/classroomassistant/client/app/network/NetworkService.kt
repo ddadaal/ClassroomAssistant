@@ -1,7 +1,6 @@
 package nju.classroomassistant.client.app.network
 
-import nju.classroomassistant.client.app.di.Service
-import tornadofx.Controller
+import nju.classroomassistant.shared.di.Service
 import java.rmi.Remote
 import kotlin.reflect.KClass
 
