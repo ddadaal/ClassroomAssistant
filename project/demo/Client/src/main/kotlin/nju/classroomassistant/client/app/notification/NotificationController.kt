@@ -1,12 +1,9 @@
 package nju.classroomassistant.client.app.notification
 
-import javafx.collections.FXCollections
 import nju.classroomassistant.client.app.network.NetworkService
 import nju.classroomassistant.client.app.usermanagement.CurrentUserManager
 import nju.classroomassistant.client.view.notification.NotificationView
-import nju.classroomassistant.shared.model.user.UserRole
 import nju.classroomassistant.shared.notification.NotificationService
-import nju.classroomassistant.shared.notification.vo.NotificationVo
 import tornadofx.Controller
 
 class NotificationController: Controller() {
@@ -36,7 +33,7 @@ class NotificationController: Controller() {
 
     fun send(content: String) {
         networkService.call(NotificationService::class) {
-            it.broadcast(content)
+            it.addNotification(content)
         }
     }
 

@@ -9,4 +9,6 @@ data class NotificationVo(
     val receiverId: Id,
     val time: LocalDateTime,
     val senderId: Id
-) : Serializable
+) : Serializable {
+    val id = Id()
+}

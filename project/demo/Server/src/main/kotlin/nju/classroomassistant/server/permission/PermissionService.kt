@@ -6,5 +6,5 @@ import nju.classroomassistant.shared.model.user.UserVo
 
 @Service
 interface PermissionService {
-    fun checkRole(user: UserVo, vararg expectedRole: UserRole)
+    fun checkRole(vararg expectedRole: UserRole)
 }

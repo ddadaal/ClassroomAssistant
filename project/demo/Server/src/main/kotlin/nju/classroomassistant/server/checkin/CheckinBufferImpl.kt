@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentLinkedQueue
 const val THRESHOLD = 10
 
 @ServiceImpl
-class CheckinCacheImpl: CheckinCache {
+class CheckinBufferImpl: CheckinBuffer {
 
 
     private val batch = ConcurrentLinkedQueue<Id>()

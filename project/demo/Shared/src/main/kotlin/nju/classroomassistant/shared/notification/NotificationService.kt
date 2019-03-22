@@ -8,7 +8,7 @@ import java.rmi.RemoteException
 interface NotificationService: Remote {
 
     @Throws(RemoteException::class)
-    fun broadcast(content: String): Id
+    fun addNotification(content: String): Id
 
     @Throws(RemoteException::class)
     fun getNotifications(receiverId: Id): List<NotificationVo>

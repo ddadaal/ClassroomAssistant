@@ -8,10 +8,8 @@ import java.lang.RuntimeException
 
 @ServiceImpl
 class PermissionServiceImpl: PermissionService {
-    override fun checkRole(user: UserVo, vararg expectedRole: UserRole) {
-        if (!expectedRole.contains(user.role)) {
-            log(this, "Role validation failed.")
-        }
+    override fun checkRole(vararg expectedRole: UserRole) {
+        // no implementation because it is only a demo
     }
 
 }

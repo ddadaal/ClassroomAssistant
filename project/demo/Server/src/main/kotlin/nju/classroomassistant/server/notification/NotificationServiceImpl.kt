@@ -3,7 +3,7 @@ package nju.classroomassistant.server.notification
 import nju.classroomassistant.server.di.di
 import nju.classroomassistant.server.network.Export
 import nju.classroomassistant.server.permission.PermissionService
-import nju.classroomassistant.server.permission.PermissionServiceImpl
+import nju.classroomassistant.shared.model.user.UserRole
 import nju.classroomassistant.shared.notification.NotificationService
 import nju.classroomassistant.shared.notification.vo.NotificationVo
 import nju.classroomassistant.shared.util.Id
@@ -14,24 +14,33 @@ import java.time.LocalDateTime
 @Export
 class NotificationServiceImpl: UnicastRemoteObject(), NotificationService {
     private val permissionService: PermissionService by di()
+    private val management: NotificationManagement by di()
 
-    override fun broadcast(content: String): Id {
-        log(this, "推送给所有用户：$content")
-        return Id()
+    init {
+        repeat(5) {
+            addNotification("通知测试$it")
+        }
+    }
+
+    override fun addNotification(content: String): Id {
+
+        permissionService.checkRole(UserRole.TEACHER)
+
+        // add a notification
+        log(this, "Add a notification $content")
+
+        val time = LocalDateTime.now()
+        val notification = NotificationVo(content, Id.ZERO, time, Id.ZERO)
+        management.add(notification)
+        return notification.id
     }
 
     override fun getNotifications(receiverId: Id): List<NotificationVo> {
 
         // omitting permission check
 
-        val list = mutableListOf<NotificationVo>()
-
-        // insert mock data
-        repeat(5) {
-            list.add(NotificationVo("通知$it", receiverId, LocalDateTime.now(), Id.ZERO))
+        return management.notifications.filter {
+            it.receiverId == receiverId || it.receiverId == Id.ZERO
         }
-
-        return list
-
     }
 }
