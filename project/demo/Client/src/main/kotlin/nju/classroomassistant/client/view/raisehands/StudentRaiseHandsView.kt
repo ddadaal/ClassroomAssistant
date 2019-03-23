@@ -14,5 +14,11 @@ class StudentRaiseHandsView : View("My View") {
                 information("举手成功", "举手成功！")
             }
         }
+        separator { }
+        button("返回") {
+            action {
+                controller.currentUserManager.backToHome(this@StudentRaiseHandsView)
+            }
+        }
     }
 }

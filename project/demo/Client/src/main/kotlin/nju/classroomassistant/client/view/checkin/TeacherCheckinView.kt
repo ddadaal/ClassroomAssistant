@@ -19,6 +19,12 @@ class TeacherCheckinView: View("教师签到") {
                 update()
             }
         }
+        separator { }
+        button("返回") {
+            action {
+                controller.currentUserManager.backToHome(this@TeacherCheckinView)
+            }
+        }
     }
 
     fun update() {

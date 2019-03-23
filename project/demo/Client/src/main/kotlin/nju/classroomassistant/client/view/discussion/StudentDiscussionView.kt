@@ -34,8 +34,12 @@ class StudentDiscussionView : View("My View") {
                 information("发送成功!")
             }
         }
-
-
+        separator { }
+        button("返回") {
+            action {
+                controller.currentUserManager.backToHome(this@StudentDiscussionView)
+            }
+        }
     }
 
     override fun onDock() {

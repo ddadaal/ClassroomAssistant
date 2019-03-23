@@ -10,7 +10,7 @@ import tornadofx.Controller
 
 class TeacherDiscussionController: Controller() {
     val networkService: NetworkService by di()
-    private val currentUserManager: CurrentUserManager by di()
+    val currentUserManager: CurrentUserManager by di()
 
     fun startDiscussion(title: String): Task<Id> {
         return runAsync {

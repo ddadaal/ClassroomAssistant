@@ -41,6 +41,12 @@ class TeacherDiscussionView: View("教师讨论管理") {
         separator { }
         label("讨论")
         listview(list)
+        separator { }
+        button("返回") {
+            action {
+                controller.currentUserManager.backToHome(this@TeacherDiscussionView)
+            }
+        }
     }
 
     fun updateConversation() {

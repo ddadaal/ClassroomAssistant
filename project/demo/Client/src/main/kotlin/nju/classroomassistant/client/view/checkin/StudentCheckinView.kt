@@ -14,5 +14,11 @@ class StudentCheckinView : View("My View") {
                 information("签到成功!", "您已经签到成功！")
             }
         }
+        separator { }
+        button("返回") {
+            action {
+                controller.currentUserManager.backToHome(this@StudentCheckinView)
+            }
+        }
     }
 }

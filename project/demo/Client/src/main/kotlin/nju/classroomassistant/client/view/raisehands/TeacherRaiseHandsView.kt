@@ -42,5 +42,11 @@ class TeacherRaiseHandsView : View("My View") {
                 controller.select(selectedId.get())
             }
         }
+        separator { }
+        button("返回") {
+            action {
+                controller.currentUserManager.backToHome(this@TeacherRaiseHandsView)
+            }
+        }
     }
 }

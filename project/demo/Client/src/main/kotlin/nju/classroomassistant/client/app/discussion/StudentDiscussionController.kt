@@ -8,7 +8,7 @@ import tornadofx.Controller
 
 class StudentDiscussionController : Controller() {
     val networkService: NetworkService by di()
-    private val currentUserManager: CurrentUserManager by di()
+    val currentUserManager: CurrentUserManager by di()
 
     fun send(content: String) {
         networkService.call(DiscussionService::class) {
