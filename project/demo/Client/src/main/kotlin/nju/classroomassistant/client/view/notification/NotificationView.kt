@@ -25,6 +25,11 @@ class NotificationView : View("My View") {
 
     override val root = vbox {
         listview(notifications)
+        button("刷新") {
+            action {
+                updateNotifications()
+            }
+        }
         button("发送通知") {
             enableWhen { enabled }
             action {
@@ -49,8 +54,15 @@ class NotificationView : View("My View") {
 
     }
 
+    fun updateNotifications() {
+        controller.updateNotifications() ui {
+            notifications.clear()
+            notifications.addAll(it)
+        }
+    }
+
     override fun onDock() {
-        controller.updateNotifications()
+        updateNotifications()
 
         enabled.set(currentUserManager.currentUser?.role == UserRole.TEACHER)
 

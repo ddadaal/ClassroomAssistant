@@ -4,22 +4,26 @@ import javafx.concurrent.Task
 import nju.classroomassistant.client.app.network.NetworkService
 import nju.classroomassistant.client.app.usermanagement.CurrentUserManager
 import nju.classroomassistant.shared.discussion.DiscussionService
+import nju.classroomassistant.shared.discussion.vo.DiscussionVo
+import nju.classroomassistant.shared.util.Id
 import tornadofx.Controller
 
-class StudentDiscussionController : Controller() {
+class TeacherDiscussionController: Controller() {
     val networkService: NetworkService by di()
     private val currentUserManager: CurrentUserManager by di()
 
-    fun send(content: String) {
-        networkService.call(DiscussionService::class) {
-            it.post(currentUserManager.currentUser!!.id, content)
+    fun startDiscussion(title: String): Task<Id> {
+        return runAsync {
+            networkService.call(DiscussionService::class) {
+                it.startDiscussion(title)
+            }
         }
     }
 
-    fun getCurrentQuestion(): Task<String> {
+    fun getCurrentDiscussion(): Task<DiscussionVo> {
         return runAsync {
             networkService.call(DiscussionService::class) {
-                it.getCurrentDiscussion().title
+                it.getCurrentDiscussion()
             }
         }
     }

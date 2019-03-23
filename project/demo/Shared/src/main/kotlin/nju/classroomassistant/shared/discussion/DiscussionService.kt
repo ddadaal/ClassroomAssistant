@@ -8,13 +8,11 @@ import java.rmi.RemoteException
 interface DiscussionService: Remote {
 
     @Throws(RemoteException::class)
-    fun getDiscussions(): List<DiscussionVo>
+    fun startDiscussion(title: String): Id
 
     @Throws(RemoteException::class)
-    fun addDiscussion(title: String, description: String = ""): Id
+    fun post(senderId: Id, content: String)
 
     @Throws(RemoteException::class)
-    fun post(discussionId: Id, senderId: Id, content: String)
-
-
+    fun getCurrentDiscussion(): DiscussionVo
 }

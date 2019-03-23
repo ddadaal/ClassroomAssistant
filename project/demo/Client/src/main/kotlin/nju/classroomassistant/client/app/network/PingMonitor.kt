@@ -25,9 +25,7 @@ class PingMonitor(
                     log("PingMonitor", "Start ping.")
                     pingService.ping()
                     log("PingMonitor", "Ping success.")
-                    if (start) {
                         delay(PING_INTERVAL)
-                    }
                 }
             } catch (e: Exception) {
                 log("PingMonitor", "Network is interrupted.")

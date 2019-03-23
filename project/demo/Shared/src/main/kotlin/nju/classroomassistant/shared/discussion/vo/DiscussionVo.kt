@@ -6,11 +6,10 @@ import java.io.Serializable
 class DiscussionVo(
     var id: Id,
     var title: String,
-    var description: String,
     var posts: List<PostVo> = ArrayList()
 ): Serializable {
 
-    constructor(): this(Id.ZERO,"","")
+    constructor(): this(Id.ZERO,"")
 
 
 }

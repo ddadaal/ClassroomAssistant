@@ -1,5 +1,7 @@
 package nju.classroomassistant.server.checkin
 
+import nju.classroomassistant.server.database.DatabaseService
+import nju.classroomassistant.server.di.di
 import nju.classroomassistant.shared.di.ServiceImpl
 import nju.classroomassistant.shared.util.Id
 import nju.classroomassistant.shared.util.log
@@ -12,6 +14,8 @@ class CheckinBufferImpl: CheckinBuffer {
 
 
     private val batch = ConcurrentLinkedQueue<Id>()
+
+    private val databaseService: DatabaseService by di()
 
     override fun checkin(userId: Id) {
         batch.offer(userId)
@@ -30,5 +34,14 @@ class CheckinBufferImpl: CheckinBuffer {
         }
 
     }
+
+    override val checkedInStudents: List<Id>
+        get() {
+            // merge buffer and database
+            val data = databaseService.executeSql("select * from checkin")
+
+            return batch.union(listOf()).toList()
+        }
+
 
 }

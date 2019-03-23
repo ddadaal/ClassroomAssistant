@@ -6,10 +6,12 @@ import nju.classroomassistant.server.permission.PermissionService
 import nju.classroomassistant.shared.checkin.CheckinService
 import nju.classroomassistant.shared.model.user.UserRole
 import nju.classroomassistant.shared.model.user.UserVo
+import nju.classroomassistant.shared.util.Id
 import java.rmi.server.UnicastRemoteObject
 
 @Export
 class CheckinServiceImpl : UnicastRemoteObject(), CheckinService {
+
 
     private val buffer: CheckinBuffer by di()
     private val permissionService: PermissionService by di()
@@ -21,5 +23,8 @@ class CheckinServiceImpl : UnicastRemoteObject(), CheckinService {
         buffer.checkin(user.id)
     }
 
+    override fun getCheckedinStudent(): List<Id> {
+        return buffer.checkedInStudents
+    }
 
 }

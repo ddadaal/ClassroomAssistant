@@ -5,10 +5,11 @@ import nju.classroomassistant.server.network.Export
 import nju.classroomassistant.server.permission.PermissionService
 import nju.classroomassistant.shared.filemanagement.FileManagementService
 import nju.classroomassistant.shared.model.user.UserRole
+import java.rmi.server.UnicastRemoteObject
 import kotlin.random.Random
 
 @Export
-class FileManagementServiceImpl: FileManagementService {
+class FileManagementServiceImpl: UnicastRemoteObject(), FileManagementService {
 
     private val encryptionService: EncryptionService by di()
     private val fileSystem: FileSystem by di()

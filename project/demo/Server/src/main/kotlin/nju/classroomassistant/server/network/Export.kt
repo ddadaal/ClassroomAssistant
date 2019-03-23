@@ -15,5 +15,6 @@ annotation class Export
 
 fun exportServices() {
     val rootService = InterNetworkServiceImpl()
-    rootService.export(InterNetworkService::class.java, rootService)
+
+    rootService.exportAll()
 }

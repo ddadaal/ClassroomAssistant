@@ -14,4 +14,7 @@ interface RaiseHandsService: Remote {
 
     @Throws(RemoteException::class)
     fun raiseHand(id: Id)
+
+    @Throws(RemoteException::class)
+    fun select(id: Id)
 }

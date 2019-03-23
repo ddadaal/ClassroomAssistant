@@ -6,4 +6,6 @@ import nju.classroomassistant.shared.util.Id
 @Service
 interface CheckinBuffer {
     fun checkin(userId: Id)
+
+    val checkedInStudents: List<Id>
 }

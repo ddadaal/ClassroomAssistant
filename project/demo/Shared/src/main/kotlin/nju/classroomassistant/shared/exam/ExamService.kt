@@ -11,6 +11,9 @@ interface ExamService: Remote {
     fun addExam(exam: ExamVo): Id
 
     @Throws(RemoteException::class)
+    fun getCurrentExam(): ExamVo?
+
+    @Throws(RemoteException::class)
     fun submitAnswerSheet(answerSheet: AnswerSheetVo): Id
 
     @Throws(RemoteException::class)

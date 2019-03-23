@@ -13,9 +13,9 @@ import kotlin.reflect.KClass
 const val scanBase = "nju.classroomassistant.server"
 
 @Suppress("UNCHECKED_CAST")
-class InterNetworkServiceImpl: UnicastRemoteObject(), InterNetworkService {
+class InterNetworkServiceImpl : UnicastRemoteObject(), InterNetworkService {
 
-    init {
+    fun exportAll() {
         LocateRegistry.createRegistry(Integer.parseInt(RmiHelper.port))
 
         ClassGraph()
@@ -39,9 +39,10 @@ class InterNetworkServiceImpl: UnicastRemoteObject(), InterNetworkService {
                 }
             }
 
+        export(InterNetworkService::class.java, this)
     }
 
-    fun <T: Remote> export(service: Class<T>, instance: T) {
+    private fun <T : Remote> export(service: Class<T>, instance: T) {
         val url = RmiHelper.generateRmiUrl(service.name)
         Naming.rebind(url, instance)
 

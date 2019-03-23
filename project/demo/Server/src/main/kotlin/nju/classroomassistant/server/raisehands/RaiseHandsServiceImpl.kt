@@ -5,6 +5,7 @@ import nju.classroomassistant.server.permission.PermissionService
 import nju.classroomassistant.shared.model.user.UserRole
 import nju.classroomassistant.shared.raisehands.RaiseHandsService
 import nju.classroomassistant.shared.util.Id
+import nju.classroomassistant.shared.util.log
 
 
 class RaiseHandsServiceImpl: RaiseHandsService {
@@ -36,6 +37,12 @@ class RaiseHandsServiceImpl: RaiseHandsService {
         permissionService.checkRole(UserRole.STUDENT)
 
         return queue.addParticipant(id)
+    }
+
+    override fun select(id: Id) {
+        permissionService.checkRole(UserRole.TEACHER)
+
+        log(this, "Selected $id")
     }
 
 }

@@ -16,12 +16,6 @@ class NotificationServiceImpl: UnicastRemoteObject(), NotificationService {
     private val permissionService: PermissionService by di()
     private val management: NotificationManagement by di()
 
-    init {
-        repeat(5) {
-            addNotification("通知测试$it")
-        }
-    }
-
     override fun addNotification(content: String): Id {
 
         permissionService.checkRole(UserRole.TEACHER)

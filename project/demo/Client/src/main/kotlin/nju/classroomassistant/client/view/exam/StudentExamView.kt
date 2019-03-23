@@ -2,9 +2,9 @@ package nju.classroomassistant.client.view.exam
 
 import tornadofx.*
 
-class StudentExamController : View("My View") {
+class StudentExamView : View("My View") {
 
-    val controller: StudentExamController by inject()
+    val controller: StudentExamView by inject()
 
     override val root = borderpane {
 
