@@ -1,5 +1,8 @@
 package nju.classroomassistant.server.filemanagement
 
+import nju.classroomassistant.shared.di.ServiceImpl
+
+@ServiceImpl
 class FileSystemImpl: FileSystem {
     override fun writeFile(path: String, content: String) {
 

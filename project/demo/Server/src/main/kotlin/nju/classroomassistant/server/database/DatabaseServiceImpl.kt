@@ -9,12 +9,13 @@ class DatabaseServiceImpl: DatabaseService {
     private val cluster: DatabaseCluster by di()
     private val securityService: SecurityService by di()
 
-    init {
-        securityService.start()
-    }
+//    init {
+//        securityService.start()
+//    }
 
     override fun executeSql(sql: String): String {
         // execute sql on all databases on cluster
+        securityService.start()
         return cluster.executeSqlOnAll(sql)
     }
 

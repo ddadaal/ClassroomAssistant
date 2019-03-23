@@ -4,6 +4,7 @@ import nju.classroomassistant.client.app.main.StudentMainController
 import nju.classroomassistant.client.app.network.NetworkService
 import nju.classroomassistant.client.view.checkin.StudentCheckinView
 import nju.classroomassistant.client.view.checkin.TeacherCheckinView
+import nju.classroomassistant.client.view.discussion.StudentDiscussionView
 import nju.classroomassistant.client.view.exam.StudentExamView
 import nju.classroomassistant.client.view.filemanagement.FileView
 import nju.classroomassistant.client.view.notification.NotificationView
@@ -29,7 +30,7 @@ class StudentMainView : View("学生功能菜单") {
         }
         button("讨论") {
             action {
-//                replaceWith<StudentDiscussionView>(sizeToScene = true)
+                replaceWith<StudentDiscussionView>(sizeToScene = true)
 
             }
         }

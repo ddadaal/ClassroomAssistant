@@ -23,10 +23,14 @@ class TeacherExamController: Controller() {
         }
     }
 
-    fun getAnswes(): Task<List<AnswerSheetVo>> {
+    fun getAnswers(): Task<List<AnswerSheetVo>> {
+        if (currentExam == null) {
+            return runAsync { arrayListOf<AnswerSheetVo>() }
+        }
         return runAsync {
-            networkService.call(ExamService::class) {
-                it.getAnswerSheetsOfAnExam(currentExam!!.id)
+
+            networkService.call(ExamService::class) {service ->
+                service.getAnswerSheetsOfAnExam(currentExam!!.id)
             }
         }
     }

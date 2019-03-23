@@ -14,9 +14,8 @@ class StudentDiscussionView : View("My View") {
 
     override val root = vbox {
         label("当前问题")
-        textfield {
+        textfield(currentQuestion) {
             isEditable = false
-            text(currentQuestion)
         }
         button("刷新问题") {
             action {
@@ -24,8 +23,7 @@ class StudentDiscussionView : View("My View") {
             }
         }
         separator { }
-        textfield {
-            text(input)
+        textfield(input) {
         }
         button("发送") {
             action {

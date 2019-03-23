@@ -5,7 +5,6 @@ import javafx.scene.Parent
 import nju.classroomassistant.client.app.exam.TeacherExamController
 import nju.classroomassistant.shared.exam.vo.AnswerSheetVo
 import nju.classroomassistant.shared.exam.vo.ExamVo
-import nju.classroomassistant.shared.util.Id
 import tornadofx.*
 
 data class SubmittedSheet(val sheet: AnswerSheetVo, val exam: ExamVo) {
@@ -31,6 +30,7 @@ class TeacherExamView: View("教师考试界面") {
 
 
     override val root: Parent = vbox {
+        label("当前考试答案情况")
         listview(answers)
         separator { }
         button("发起新考试") {
@@ -38,6 +38,12 @@ class TeacherExamView: View("教师考试界面") {
 
             }
         }
+        button("刷新") {
+            action {
+                updateAnswers()
+            }
+        }
+        separator {  }
         button("返回") {
             action {
                 controller.currentUserManager.backToHome(this@TeacherExamView)
@@ -46,7 +52,7 @@ class TeacherExamView: View("教师考试界面") {
     }
 
     private fun updateAnswers() {
-        controller.getAnswes() ui {
+        controller.getAnswers() ui {
             answers.clear()
             answers.addAll(it.map { sheet -> SubmittedSheet(sheet, controller.currentExam!!) })
         }
@@ -54,9 +60,10 @@ class TeacherExamView: View("教师考试界面") {
 
     override fun onDock() {
 
-        controller.getExamInformation()
+        controller.getExamInformation() ui {
+            updateAnswers()
+        }
 
-        updateAnswers()
 
         super.onDock()
     }

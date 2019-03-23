@@ -6,9 +6,7 @@ import kotlin.reflect.KProperty
 
 const val scanBase = "nju.classroomassistant.server"
 
-val container by lazy {
-    CADiContainer(scanBase)
-}
+val container = CADiContainer(scanBase)
 
 inline fun <reified T : Any> di(): ReadOnlyProperty<Any, T> {
     return object : ReadOnlyProperty<Any, T> {

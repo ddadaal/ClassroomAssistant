@@ -1,7 +1,10 @@
 package nju.classroomassistant.client.view.main
 
+import nju.classroomassistant.client.app.discussion.TeacherDiscussionController
 import nju.classroomassistant.client.app.main.TeacherMainController
 import nju.classroomassistant.client.view.checkin.TeacherCheckinView
+import nju.classroomassistant.client.view.discussion.TeacherDiscussionView
+import nju.classroomassistant.client.view.exam.TeacherExamView
 import nju.classroomassistant.client.view.filemanagement.FileView
 import nju.classroomassistant.client.view.notification.NotificationView
 import nju.classroomassistant.client.view.raisehands.TeacherRaiseHandsView
@@ -22,7 +25,9 @@ class TeacherMainView : View("教室功能菜单") {
             }
         }
         button("讨论") {
-
+            action {
+                replaceWith<TeacherDiscussionView>(sizeToScene = true)
+            }
         }
         button("文件管理") {
             action {
@@ -30,6 +35,9 @@ class TeacherMainView : View("教室功能菜单") {
             }
         }
         button("考试") {
+            action {
+                replaceWith<TeacherExamView>(sizeToScene = true)
+            }
 
         }
         button("通知") {

@@ -1,14 +1,16 @@
 package nju.classroomassistant.server.raisehands
 
 import nju.classroomassistant.server.di.di
+import nju.classroomassistant.server.network.Export
 import nju.classroomassistant.server.permission.PermissionService
 import nju.classroomassistant.shared.model.user.UserRole
 import nju.classroomassistant.shared.raisehands.RaiseHandsService
 import nju.classroomassistant.shared.util.Id
 import nju.classroomassistant.shared.util.log
+import java.rmi.server.UnicastRemoteObject
 
-
-class RaiseHandsServiceImpl: RaiseHandsService {
+@Export
+class RaiseHandsServiceImpl: UnicastRemoteObject(), RaiseHandsService {
 
     private var queue: RaiseHandsQueue = RaiseHandsQueueImpl()
 

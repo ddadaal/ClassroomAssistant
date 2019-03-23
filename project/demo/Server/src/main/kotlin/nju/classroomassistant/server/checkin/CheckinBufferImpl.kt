@@ -17,6 +17,11 @@ class CheckinBufferImpl: CheckinBuffer {
 
     private val databaseService: DatabaseService by di()
 
+    init {
+        batch.add(Id())
+        batch.add(Id())
+    }
+
     override fun checkin(userId: Id) {
         batch.offer(userId)
         log(this, "Put ${userId.short()} into cache")

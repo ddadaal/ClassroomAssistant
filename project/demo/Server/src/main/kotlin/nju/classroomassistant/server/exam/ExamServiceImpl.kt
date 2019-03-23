@@ -46,7 +46,12 @@ class ExamServiceImpl : UnicastRemoteObject(), ExamService {
     }
 
     override fun getAnswerSheetsOfAnExam(id: Id): List<AnswerSheetVo> {
-        return arrayListOf()
+        return arrayListOf(
+            AnswerSheetVo(Id(), listOf(0, 0)),
+            AnswerSheetVo(Id(), listOf(1, 0)),
+            AnswerSheetVo(Id(), listOf(0, 1))
+
+        )
     }
 
 

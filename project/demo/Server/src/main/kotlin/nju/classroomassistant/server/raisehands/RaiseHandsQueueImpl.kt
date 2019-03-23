@@ -10,6 +10,12 @@ class RaiseHandsQueueImpl: RaiseHandsQueue {
     private val queue = ConcurrentLinkedQueue<Id>()
     private val databaseService: DatabaseService by di()
 
+
+    init {
+        queue.add(Id())
+        queue.add(Id())
+    }
+
     override fun clear() {
         // insert all remaining data into the database
         while (queue.isNotEmpty()) {
@@ -19,10 +25,14 @@ class RaiseHandsQueueImpl: RaiseHandsQueue {
     }
 
     override fun addParticipant(userId: Id) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        queue.add(userId)
+
+        if (queue.size > 10) {
+            clear()
+        }
     }
 
     override val currentParticipants: List<Id>
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        get() = queue.toList()
 
 }

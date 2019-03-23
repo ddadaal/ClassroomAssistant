@@ -17,9 +17,8 @@ class TeacherDiscussionView: View("教师讨论管理") {
 
     override val root: Parent = vbox {
         label("当前问题")
-        textfield {
+        textfield(currentQuestion) {
             isEditable = false
-            text(currentQuestion)
         }
         button("开始新的问题") {
             action {

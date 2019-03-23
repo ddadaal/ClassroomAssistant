@@ -18,8 +18,7 @@ class StudentExamView : View("My View") {
             text("问题1")
         }
         label("输入答案")
-        textfield {
-            text(answer)
+        textfield(answer) {
         }
         button("提交") {
             action {

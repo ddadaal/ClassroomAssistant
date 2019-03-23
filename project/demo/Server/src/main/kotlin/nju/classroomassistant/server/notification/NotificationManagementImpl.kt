@@ -10,15 +10,17 @@ import java.time.LocalDateTime
 @ServiceImpl
 class NotificationManagementImpl: NotificationManagement {
 
-    init {
-        repeat(5) { i ->
-            add(NotificationVo("通知测试$i", Id.ZERO, LocalDateTime.now(), Id.ZERO))
-        }
-    }
 
     private val databaseService: DatabaseService by di()
 
     private val content = mutableListOf<NotificationVo>()
+
+    init {
+        repeat(5) { i ->
+            content.add(NotificationVo("通知测试$i", Id.ZERO, LocalDateTime.now(), Id.ZERO))
+        }
+    }
+
 
     override fun add(vo: NotificationVo) {
 
