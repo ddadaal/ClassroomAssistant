@@ -1,4 +1,4 @@
-package nju.classroomassistant.server.database
+package nju.classroomassistant.server.database.cloudbackup
 
 import nju.classroomassistant.shared.di.Service
 import nju.classroomassistant.shared.di.ServiceImpl

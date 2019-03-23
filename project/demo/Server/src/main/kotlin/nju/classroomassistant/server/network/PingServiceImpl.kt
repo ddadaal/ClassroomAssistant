@@ -1,7 +1,6 @@
-package nju.classroomassistant.server.ping
+package nju.classroomassistant.server.network
 
-import nju.classroomassistant.server.network.Export
-import nju.classroomassistant.shared.ping.PingService
+import nju.classroomassistant.shared.network.PingService
 import nju.classroomassistant.shared.util.log
 import java.rmi.server.UnicastRemoteObject
 

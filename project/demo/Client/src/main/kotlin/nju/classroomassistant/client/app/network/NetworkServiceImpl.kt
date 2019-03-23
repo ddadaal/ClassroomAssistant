@@ -2,7 +2,7 @@ package nju.classroomassistant.client.app.network
 
 import nju.classroomassistant.shared.di.ServiceImpl
 import nju.classroomassistant.shared.network.InterNetworkService
-import nju.classroomassistant.shared.ping.PingService
+import nju.classroomassistant.shared.network.PingService
 import nju.classroomassistant.shared.util.RmiHelper
 import nju.classroomassistant.shared.util.log
 import java.rmi.Naming
@@ -51,7 +51,7 @@ class NetworkServiceImpl : NetworkService {
 
             log(this, "Connected.")
 
-            pingMonitor = PingMonitor(getObjectFromService(PingService::class)) {
+            pingMonitor = PingMonitorImpl(getObjectFromService(PingService::class)) {
                 pingMonitor!!.pause()
                 changeState(NetworkState.INTERFERED)
                 tryReconnect()

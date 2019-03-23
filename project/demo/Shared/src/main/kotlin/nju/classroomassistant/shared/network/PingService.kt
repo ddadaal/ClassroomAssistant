@@ -1,4 +1,4 @@
-package nju.classroomassistant.shared.ping
+package nju.classroomassistant.shared.network
 
 import java.rmi.Remote
 import java.rmi.RemoteException

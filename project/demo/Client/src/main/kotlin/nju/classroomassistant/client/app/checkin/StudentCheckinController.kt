@@ -15,7 +15,7 @@ class StudentCheckinController : Controller() {
         val user = currentUserManager.currentUser
 
         networkService.call(CheckinService::class) {
-            it.checkin(user!!)
+            it.checkin(user!!.id)
         }
 
 

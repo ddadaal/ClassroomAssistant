@@ -1,5 +1,6 @@
-package nju.classroomassistant.server.database
+package nju.classroomassistant.server.database.cluster
 
+import nju.classroomassistant.server.database.dblog.DbLogService
 import nju.classroomassistant.server.di.di
 import nju.classroomassistant.shared.di.Service
 import nju.classroomassistant.shared.di.ServiceImpl

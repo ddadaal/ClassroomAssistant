@@ -1,8 +1,9 @@
-package nju.classroomassistant.server.database
+package nju.classroomassistant.server.database.security
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import nju.classroomassistant.server.database.cluster.DatabaseCluster
 import nju.classroomassistant.server.di.di
 import nju.classroomassistant.shared.di.Service
 import nju.classroomassistant.shared.di.ServiceImpl

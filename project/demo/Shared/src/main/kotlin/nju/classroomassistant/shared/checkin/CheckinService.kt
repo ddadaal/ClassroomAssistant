@@ -8,8 +8,8 @@ import java.rmi.RemoteException
 interface CheckinService: Remote {
 
     @Throws(RemoteException::class)
-    fun checkin(user: UserVo)
+    fun checkin(userId: Id)
 
     @Throws(RemoteException::class)
-    fun getCheckedinStudent(): List<Id>
+    fun getCheckedInStudents(): List<Id>
 }

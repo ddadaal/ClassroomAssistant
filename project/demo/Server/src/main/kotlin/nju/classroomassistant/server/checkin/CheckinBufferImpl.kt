@@ -9,7 +9,6 @@ import java.util.concurrent.ConcurrentLinkedQueue
 
 const val THRESHOLD = 10
 
-@ServiceImpl
 class CheckinBufferImpl: CheckinBuffer {
 
 

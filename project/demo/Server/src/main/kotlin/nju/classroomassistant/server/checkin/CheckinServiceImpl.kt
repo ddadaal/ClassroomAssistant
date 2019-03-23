@@ -13,17 +13,17 @@ import java.rmi.server.UnicastRemoteObject
 class CheckinServiceImpl : UnicastRemoteObject(), CheckinService {
 
 
-    private val buffer: CheckinBuffer by di()
+    private val buffer = CheckinBufferImpl()
     private val permissionService: PermissionService by di()
 
-    override fun checkin(user: UserVo) {
+    override fun checkin(userId: Id) {
 
         permissionService.checkRole(UserRole.TEACHER, UserRole.STUDENT)
 
-        buffer.checkin(user.id)
+        buffer.checkin(userId)
     }
 
-    override fun getCheckedinStudent(): List<Id> {
+    override fun getCheckedInStudents(): List<Id> {
         return buffer.checkedInStudents
     }
 

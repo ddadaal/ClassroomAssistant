@@ -1,20 +1,24 @@
 package nju.classroomassistant.client.app.network
 
-import nju.classroomassistant.shared.ping.PingService
-import nju.classroomassistant.shared.util.RmiHelper
+import nju.classroomassistant.shared.network.PingService
 import nju.classroomassistant.shared.util.log
-import java.rmi.Naming
-import javax.xml.bind.JAXBElement
 import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
 
 
 const val PING_INTERVAL = 5000L
 
-class PingMonitor(
+interface PingMonitor {
+    fun start(pingService: PingService?)
+
+    fun pause()
+
+    fun stop()
+}
+
+class PingMonitorImpl (
     var pingService: PingService,
     val pingFailed: () -> Unit
-) {
+): PingMonitor {
 
     private var start = true
 
@@ -25,7 +29,7 @@ class PingMonitor(
                     log("PingMonitor", "Start ping.")
                     pingService.ping()
                     log("PingMonitor", "Ping success.")
-                        delay(PING_INTERVAL)
+                    delay(PING_INTERVAL)
                 }
             } catch (e: Exception) {
                 log("PingMonitor", "Network is interrupted.")
@@ -40,18 +44,18 @@ class PingMonitor(
     }
 
 
-    fun start(pingService: PingService?) {
+    override fun start(pingService: PingService?) {
         if (pingService != null) {
             this.pingService = pingService
         }
         start = true
     }
 
-    fun pause() {
+    override fun pause() {
         start = false
     }
 
-    fun stop() {
+    override fun stop() {
         start = false
         thread.cancel()
     }

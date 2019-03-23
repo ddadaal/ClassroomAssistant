@@ -10,7 +10,7 @@ import java.rmi.server.UnicastRemoteObject
 @Export
 class LoginServiceImpl: UnicastRemoteObject(), LoginService {
 
-    private val cache: LoginCache by di()
+    private val cache = LoginCacheImpl()
 
     override fun login(username: String, password: String): UserVo? {
         log(this, "Attempting to login with $username and $password")

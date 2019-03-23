@@ -7,6 +7,6 @@ import nju.classroomassistant.shared.di.ServiceImpl
 interface EncryptionService {
     fun encrypt(content: String): String
 
-    fun decrypt(encrypted:String) :String
+    fun decrypt(encrypted: String): String
 }
 
