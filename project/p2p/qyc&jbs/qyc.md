@@ -1,5 +1,4 @@
 ## 3.3 第三次迭代
----
 ### 3.3.1 分解系统组件
 
 本迭代分解服务端节点的注册-发现模块。
@@ -108,7 +107,6 @@
 
 
 ## 3.4 第四次迭代
----
 ### 3.4.1 分解系统组件
 
 本迭代分解客户端节点的网络模块。
@@ -188,7 +186,6 @@
 ![client-register model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/client-register%20model.jpg)
 
 ## 3.5 第五次迭代
----
 ### 3.5.1 分解系统组件
 
 本迭代分解客户端节点的数据持久化模块。
@@ -269,7 +266,6 @@
 ![data model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/data%20model.jpg)
 
 ## 3.6 第六次迭代
----
 ### 3.6.1 分解系统组件
 
 本迭代分解客户端节点的签到模块。
@@ -344,7 +340,6 @@
 ![signup model](https://github.com/viccrubs/ClassroomAssistant/blob/master/project/p2p/qyc&jbs/img/signup%20model.jpg)
 
 ## 3.7 第七次迭代
----
 ### 3.7.1 分解系统组件
 
 本迭代分解客户端节点的考试模块。
