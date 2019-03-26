@@ -5,7 +5,7 @@ import nju.classroomassistant.shared.util.log
 import kotlinx.coroutines.*
 
 
-const val PING_INTERVAL = 5000L
+const val PING_INTERVAL = 3000L
 
 interface PingMonitor {
     fun start(pingService: PingService?)

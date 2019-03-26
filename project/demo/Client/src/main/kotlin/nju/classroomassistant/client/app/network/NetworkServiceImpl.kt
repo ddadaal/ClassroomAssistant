@@ -15,7 +15,7 @@ enum class NetworkState {
     INTERFERED
 }
 
-const val RETRY_COUNT = 10
+const val RETRY_COUNT = 100
 
 @Suppress("UNCHECKED_CAST")
 @ServiceImpl
@@ -93,9 +93,11 @@ class NetworkServiceImpl : NetworkService {
 
                 pingMonitor?.start(getObjectFromService(PingService::class))
 
+
                 return
             } catch (e: Exception) {
                 count++
+                Thread.sleep(500)
             }
         }
 

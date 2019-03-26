@@ -10,7 +10,7 @@ class StudentDiscussionView : View("My View") {
 
     val currentQuestion = SimpleStringProperty()
 
-    val input = SimpleStringProperty()
+    val input = SimpleStringProperty("")
 
     override val root = vbox {
         label("当前问题")
