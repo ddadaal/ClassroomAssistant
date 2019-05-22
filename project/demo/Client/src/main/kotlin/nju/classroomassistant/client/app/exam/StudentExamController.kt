@@ -24,8 +24,10 @@ class StudentExamController: Controller() {
 
         return runAsync {
             if (currentExam != null) {
-                networkService.call(ExamService::class) {
-                    it.submitAnswerSheet(AnswerSheetVo(currentUserManager.currentUser!!.id, answers))
+                networkService.call(ExamService::class) { service ->
+                    currentUserManager.withCurrentUser {user ->
+                        service.submitAnswerSheet(AnswerSheetVo(user.id, answers))
+                    }
                 }
             }
 

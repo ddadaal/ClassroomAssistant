@@ -26,5 +26,18 @@ class CurrentUserManagerImpl : CurrentUserManager {
         return currentUser != null
     }
 
-    override var currentUser: UserVo? = null
+    private var currentUser: UserVo? = null
+
+    override fun setCurrentUser(user: UserVo?) {
+        this.currentUser = user
+    }
+
+
+    override fun <T> withCurrentUser(handle: (user: UserVo) -> T): T {
+        if (currentUser != null) {
+            return handle(currentUser!!)
+        } else {
+            throw Exception()
+        }
+    }
 }

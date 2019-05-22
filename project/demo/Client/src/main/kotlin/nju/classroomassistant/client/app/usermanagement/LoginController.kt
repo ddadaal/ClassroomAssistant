@@ -33,8 +33,10 @@ class LoginController : Controller() {
 
     fun tryLogin(username: String, password: String, remember: Boolean) {
         runAsync {
-            currentUserManager.currentUser = networkService.call(LoginService::class) { it.login(username, password) }
-            currentUserManager.currentUser
+
+            val userVo = networkService.call(LoginService::class) { it.login(username, password) }
+            currentUserManager.setCurrentUser(userVo)
+            userVo
         } ui { user ->
 
             if (user != null) {

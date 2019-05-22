@@ -64,7 +64,9 @@ class NotificationView : View("My View") {
     override fun onDock() {
         updateNotifications()
 
-        enabled.set(currentUserManager.currentUser?.role == UserRole.TEACHER)
+        currentUserManager.withCurrentUser {
+            enabled.set(it.role == UserRole.TEACHER)
+        }
 
     }
 }

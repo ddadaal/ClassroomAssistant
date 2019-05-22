@@ -11,8 +11,11 @@ class StudentDiscussionController : Controller() {
     val currentUserManager: CurrentUserManager by di()
 
     fun send(content: String) {
-        networkService.call(DiscussionService::class) {
-            it.post(currentUserManager.currentUser!!.id, content)
+        networkService.call(DiscussionService::class) { service ->
+            currentUserManager.withCurrentUser { user ->
+                service.post(user.id, content)
+
+            }
         }
     }
 

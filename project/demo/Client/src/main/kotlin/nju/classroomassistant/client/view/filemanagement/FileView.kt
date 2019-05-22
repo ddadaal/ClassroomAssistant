@@ -85,7 +85,10 @@ class FileView : View("文件管理") {
     override fun onDock() {
         updateFiles()
 
-        isTeacher.set(currentUserManager.currentUser?.role == UserRole.TEACHER)
+        currentUserManager.withCurrentUser {
+            isTeacher.set(it.role == UserRole.TEACHER)
+        }
+
 
     }
 }

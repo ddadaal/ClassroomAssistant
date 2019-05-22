@@ -9,7 +9,9 @@ interface CurrentUserManager {
 
     fun backToHome(context: View)
 
-    var currentUser: UserVo?
+    fun <T> withCurrentUser(handle: (user: UserVo) -> T): T
 
     fun checkLogin(): Boolean
+
+    fun setCurrentUser(user: UserVo?)
 }

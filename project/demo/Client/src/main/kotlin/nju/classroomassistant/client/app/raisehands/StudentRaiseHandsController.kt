@@ -11,8 +11,10 @@ class StudentRaiseHandsController: Controller() {
     val currentUserManager: CurrentUserManager by di()
 
     fun raiseHands() {
-        networkService.call(RaiseHandsService::class) {
-            it.raiseHand(currentUserManager.currentUser!!.id)
+        networkService.call(RaiseHandsService::class) { service ->
+            currentUserManager.withCurrentUser {user ->
+                service.raiseHand(user.id)
+            }
         }
     }
 

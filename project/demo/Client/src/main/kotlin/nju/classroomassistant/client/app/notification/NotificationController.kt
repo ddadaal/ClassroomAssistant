@@ -19,8 +19,10 @@ class NotificationController: Controller() {
         return runAsync {
             currentUserManager.checkLogin()
 
-            networkService.call(NotificationService::class) {
-                it.getNotifications(currentUserManager.currentUser!!.id)
+            networkService.call(NotificationService::class) { service ->
+                currentUserManager.withCurrentUser { user ->
+                    service.getNotifications(user.id)
+                }
             }
 
         }
